@@ -17,11 +17,21 @@ def guess_number_game(guess_num,guess_chance):
     # 提示开始游戏
     print("Guess the number game begins(1-100):")
     # 循环开始，猜的数字在规定的范围内
+<<<<<<< HEAD
     while sum < guess_chance:
     #for i in range(0,guess_chance):
         sum += 1
         try:
             guess = int(input("Please enter the number:"))
+=======
+    for i in range(1,guess_chance + 1):     # 这里使用range(0, guess_chance)即可，在Python中，或者绝大多数语言，计数是从0开始的
+        # 设置异常，如果输入的不是整数，则跳出异常
+        try:
+            guess = int(input("Please enter the number:"))
+        except ValueError:         # 对于捕获错误的提示信息，应该定义明确。比如在try中如有int报异常，except分支应该提示用户必须遵守的输入要求
+            print("Input Error")
+            continue
+>>>>>>> temp
         # 如果猜的数据不在规定范围内，则提示错误，并将该次猜测数记录进去
             if guess < 0 or guess >= 100:
                 print("You must guess a number between 0-99!")
@@ -44,7 +54,11 @@ def guess_number_game(guess_num,guess_chance):
             print("Input Error")
             continue
     #如果猜测次数超过限定次数，则输出正确答案
+<<<<<<< HEAD
     if  sum == guess_chance:
+=======
+    while (guess_chance - sum) == 0:    # 这个循环和上面for循环中的最后一个分支，重复了。
+>>>>>>> temp
         print("You have guessed "+ str(sum) + " times! The correct answer is : " + str(guess_num) + "!")
 
 #调用函数
