@@ -11,17 +11,19 @@ guess_num = random.randint(1, 100)
 # 由用户输入一个数字，代表猜数字的上限次数
 guess_chance = int(input("Please enter the number of guess chances."))
 
-# 定义一个猜数字游戏的函数，以便之后修改参数就可以进行不同范围的猜数字游戏
-def guess_number_game(guess_num,guess_chance):
+''' 定义一个猜数字游戏的函数,
+    可以通过修改参数进行不同范围的猜数字游戏'''
+
+def guess_number_game(guess_num, guess_chance):
     sum = 0   # 用来记录已经猜测的次数
     # 提示开始游戏
     print("Guess the number game begins(1-100):")
 
     # 循环开始，猜的数字在规定的范围内
     while sum < guess_chance:
-    #for i in range(0,guess_chance):
+    # for i in range(guess_chance):   #表示次数可以从0开始
         sum += 1
-        try:
+        try:     # if not y.isdigit():print("please enter an int")
             guess = int(input("Please enter the number:"))
         # 如果猜的数据不在规定范围内，则提示错误，并将该次猜测数记录进去
             if guess < 0 or guess >= 100:
@@ -42,13 +44,12 @@ def guess_number_game(guess_num,guess_chance):
                 break
         # 设置异常，如果输入的不是整数，则跳出异常
         except ValueError:
-            print("Input Error")
+            print("Input Error,please enter an integer!")
             continue
 
-    #如果猜测次数超过限定次数，则输出正确答案
-    if  sum == guess_chance:
-        print("You have guessed "+ str(sum) + " times! The correct answer is : " + str(guess_num) + "!")
+    # 如果猜测次数超过限定次数，则输出正确答案
+    if sum == guess_chance:
+        print(f"You have guessed {sum} times! The correct answer is :{guess_num} !")
 
-#调用函数
-guess_number_game(guess_num,guess_chance)
+guess_number_game(guess_num,guess_chance) # 调用函数
 
