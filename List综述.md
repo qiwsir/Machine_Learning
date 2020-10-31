@@ -22,6 +22,12 @@ print(list3)
 print(list4)
 ```
 
+    [1, 2, 3, 4, 5]
+    ['lucky', 'happy', 'nice', 'sunshine']
+    ['a', 'b', 'c', 'd', 'e']
+    ['red', 'green', 1998, 'blue', '777']
+
+
 #### 1.3 访问列表中的元素
 访问列表中的元素包括索引和切片两种情况，列表是有序集合，因此要访问列表中的任何元素，只需要把该元素的位置或索引告诉Python即可。
 如果要访问列表元素，可指出列表的名称，再指出元素的索引，并将其放在方括号内即可。注意在Python中，第一个列表元素的索引为0，而不
@@ -29,9 +35,11 @@ print(list4)
 最后一个列表元素，不仅可以通过上述方法进行访问，还可以将索引指定为-1，这样就可以返回最后一个列表元素。下图是列表中的索引和值的
 对应关系。
 
-![](https://cdn.jsdelivr.net/gh/CheneyLu-71/Pictures/2020-10-30/1604054255810-picture1.png)
+![](https://imgkr2.cn-bj.ufileos.com/caa237b9-5b07-475a-9438-5a74b3cb0f2c.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=3udPLV0aHI2TpxSiFhzFo0ytz%252Bg%253D&Expires=1604220151)
 
-![](https://cdn.jsdelivr.net/gh/CheneyLu-71/Pictures/2020-10-30/1604054264385-picture2.png)
+![](https://imgkr2.cn-bj.ufileos.com/bd2e0c89-d466-4d7b-b938-a7db00b47e05.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=qQqwLj08W0veEoX%252Bl80VlWVyqKA%253D&Expires=1604220157)
+
+
 
 一次可以访问一个或多个列表元素，通过下面的例子说明。
 
@@ -496,7 +504,7 @@ for i in dim:  # 遍历元组中的元素
 
     列表(List)是Python中最基本的数据结构，它可以作为一个方括号内的逗号分隔值出现，列表的数据项不需要具有相同的类型。在List中的数据类型保存的是数据的存放的地址，简单的说就是指针，并非数据。
 
-    Python原生没有数组(array)的概念，这点不同于Java之类的面向对象语言。数组是Numpy库中所定义的，所以在使用数组之前必须下载安装numpy库。Numpy中封装的array有很强大的功能，里面存放的都是相同的数据类型，每个元素在内存中都有相同存储大小的区域。Numpy数组的维数称为秩（rank），秩就是轴的数量，即数组的维度，一维数组的秩为 1，二维数组的秩为 2，以此类推。在NumPy中，每一个线性的数组称为是一个轴（axis），也就是维度（dimensions）。
+    Python原生没有数组(array)的概念，这点不同于Java之类的面向对象语言。数组是Numpy库中所定义的，所以在使用数组之前必须下载安装Numpy库。Numpy中封装的array有很强大的功能，里面存放的都是相同的数据类型，每个元素在内存中都有相同存储大小的区域。Numpy数组的维数称为秩（rank），秩就是轴的数量，即数组的维度，一维数组的秩为1，二维数组的秩为2，以此类推。在NumPy中，每一个线性的数组称为是一个轴（axis），也就是维度（dimensions）。
     
     Python中原生的列表使用起来很像数组，但是两者有本质的区别。
 
@@ -555,7 +563,7 @@ print(Array2)
     [list([1, 2, 3, 4]) list(['a', 'b', 'c']) list(['green', 'red', 'yellow'])]
 
 
-    （6）列表创建时参数就是list，而numpy创建数组时，参数既可以是list，也可以是元组。
+    （6）列表创建时参数就是list，而numpy创建数组时，参数既可以是列表list，也可以是元组tuple。
 
 
 ```python
@@ -589,7 +597,7 @@ print(Array.shape)
     (3, 3)
 
 
-    （6）创建列表的方式比较单一，但是numpy中有多种创建数组的方式，比如用ones, zeros，eye创建特殊的数组，用arange和linspace创建数组。
+    （8）创建列表的方式比较单一，但是numpy中有多种创建数组的方式，比如用ones, zeros，eye创建特殊的数组，用arange和linspace创建数组。
 
 
 ```python
@@ -630,10 +638,11 @@ print(Array6)
     [ 1.    3.25  5.5   7.75 10.  ]
 
 
-    （7）列表和数组的运算不同。
+    （9）列表和数组的运算不完全相同。
         *列表中的加法运算表示把两个数组拼接起来，列表之间没有减法、乘除运算。
         *数组中的加法运算表示把数组中的元素对应求和，数组之间有减法、乘除运算。
         *列表乘上一个数字n，表示重复n次列表中的元素；而数组乘上一个数字n，表示数组中的每个元素乘以n。
+        *列表求均值的方式和数组不同，数组可以直接使用mean()函数。
 
 
 ```python
@@ -676,6 +685,20 @@ print(Array_new)
 
     [1, 2, 3, 1, 2, 3, 1, 2, 3]
     [3 6 9]
+
+
+
+```python
+List = [1,3,5,7,9]
+mean_list = sum(List) / len(List)   # 列表计算均值
+print(mean_list)
+Array = np.array([1,3,5,7,9])  
+mean_arr = np.mean(Array)          # 数组计算均值
+print(mean_arr)
+```
+
+    5.0
+    5.0
 
 
     （8）numpy中连接数组的方式与列表list不同，列表可以直接通过加号（+）连接数组，但是numpy可以通过concatenate、stack、hstack、vstack连接数组。
@@ -986,24 +1009,53 @@ print(np.median(arr,0))   # 沿轴1计算中位数
     [2. 6. 6.]
 
 
-    （6）列表和数组都可以进行排序。列表的主要排序方法是sort()、sorted()；数组的排序方法也是sort()，另外可以利用argsort()返回的是数组值从小到大的索引值。
+    （6）列表和数组都可以进行排序。列表的主要排序方法是sort()、sorted()；数组的排序方法也是sort()（但是数组的sort方法不是永久修改），另外可以利用argsort()返回的是数组值从小到大的索引值。
 
 
 ```python
-
+# 列表的排序
+List = [2,3,1,6,3,9,4,8]
+List.sort()
+print(List)                # 是永久修改排序
+# 数组的排序
+Array = np.array([2,3,1,6,3,9,4,8])
+print(np.sort(Array))      # 返回排序结果
+print(Array)               # 返回原来的数组，不是永久修改
+print(np.argsort(Array))   # 返回索引值
 ```
+
+    [1, 2, 3, 3, 4, 6, 8, 9]
+    [1 2 3 3 4 6 8 9]
+    [2 3 1 6 3 9 4 8]
+    [2 0 1 4 6 3 7 5]
+
+
+    （7）列表和数组都可以用for循环进行遍历，来输出所有元素。
 
 
 ```python
-
+List = list(range(10))   
+for i in List:         # 遍历列表
+    print(i)
+arr = np.arange(0,24).reshape((2,3,4))
+for i in arr:         # 遍历数组
+    print(i)
 ```
 
+    0
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    [[ 0  1  2  3]
+     [ 4  5  6  7]
+     [ 8  9 10 11]]
+    [[12 13 14 15]
+     [16 17 18 19]
+     [20 21 22 23]]
 
-```python
-
-```
-
-
-```python
-
-```
