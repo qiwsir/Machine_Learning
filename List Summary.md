@@ -29,9 +29,10 @@ print(list4)
 最后一个列表元素，不仅可以通过上述方法进行访问，还可以将索引指定为-1，这样就可以返回最后一个列表元素。下图是列表中的索引和值的
 对应关系。
 
-![](https://cdn.jsdelivr.net/gh/CheneyLu-71/Pictures/2020-11-1/1604204871924-picture1.png)
+![](https://imgkr2.cn-bj.ufileos.com/7b8bad1f-28fd-40d3-8d9b-f594fdb2e860.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=vsfbqUydGXAnWoZtjeRprR1mty0%253D&Expires=1604291672)
 
-![](https://cdn.jsdelivr.net/gh/CheneyLu-71/Pictures/2020-11-1/1604204878697-picture2.png)
+![](https://imgkr2.cn-bj.ufileos.com/c5c74a6d-d9d5-427d-beb7-c8f6ef2943ee.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=SQ6x8mh4xjaN922yNhzcAIoKNlQ%253D&Expires=1604291681)
+
 
 一次可以访问一个或多个列表元素，通过下面的例子说明。
 
