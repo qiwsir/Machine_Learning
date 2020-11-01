@@ -1,9 +1,12 @@
-#!/usr/bin/env python 
-# coding:utf-8 
+# coding:utf-8
 # @Time :2020/10/28 3:51 下午
 # @File :fib_recur.py
 
-# 定义一个用递归方法进行循环生成数列的函数
+'''
+递归生成斐波那契数列是效果最差的方法！
+'''
+
+#定义用递归方法生成数列的函数
 def fib_recur_method(n):
     if n <= 1:  # 第0项和第1项是它本身
         return n
