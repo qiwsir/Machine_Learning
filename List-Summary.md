@@ -22,16 +22,22 @@ print(list3)
 print(list4)
 ```
 
+    [1, 2, 3, 4, 5]
+    ['lucky', 'happy', 'nice', 'sunshine']
+    ['a', 'b', 'c', 'd', 'e']
+    ['red', 'green', 1998, 'blue', '777']
+
+
 #### 1.3 访问列表中的元素
 访问列表中的元素包括索引和切片两种情况，列表是有序集合，因此要访问列表中的任何元素，只需要把该元素的位置或索引告诉Python即可。
 如果要访问列表元素，可指出列表的名称，再指出元素的索引，并将其放在方括号内即可。注意在Python中，第一个列表元素的索引为0，而不
 是1，这与列表操作的底层实现相关。所以根据这种计数方法，要访问列表中的任何元素，都可以将其位置减1，并将结果作为索引。如果要访问
-最后一个列表元素，不仅可以通过上述方法进行访问，还可以将索引指定为-1，这样就可以返回最后一个列表元素。下图是列表中的索引和值的
-对应关系。
+最后一个列表元素，不仅可以通过上述方法进行访问，还可以将索引指定为-1，这样就可以返回最后一个列表元素。下图是列表中的索引和值的对应关系。
 
-![](https://imgkr2.cn-bj.ufileos.com/7b8bad1f-28fd-40d3-8d9b-f594fdb2e860.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=vsfbqUydGXAnWoZtjeRprR1mty0%253D&Expires=1604291672)
+![](https://imgkr2.cn-bj.ufileos.com/84d4e1c4-1efa-46bf-a87b-22b5cb7fa337.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=%252Fu%252FQ%252FmAYacHHDu27CZpgkWBlSEE%253D&Expires=1604320993)
 
-![](https://imgkr2.cn-bj.ufileos.com/c5c74a6d-d9d5-427d-beb7-c8f6ef2943ee.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=SQ6x8mh4xjaN922yNhzcAIoKNlQ%253D&Expires=1604291681)
+
+![](https://imgkr2.cn-bj.ufileos.com/20450028-f2b5-484b-8c4c-e79a3a3b2973.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=9Y%252Fr9gw0YhTKkLYZKA521EtJnzk%253D&Expires=1604321001)
 
 
 一次可以访问一个或多个列表元素，通过下面的例子说明。
@@ -44,6 +50,12 @@ print(list_[1:3])   # 返回列表第2、3个元素
 print(list_[-1])    # 返回列表最后一个元素
 print(list_[:-2])   # 返回第1至倒数第2个元素
 ```
+
+    1
+    [3, 'green']
+    hello
+    [1, 3, 'green', 'Lucy', 'a', 'c']
+
 
     索引是指使用中括号[]来定位数据元素，不仅可以定位到单个元素，也可以定位到多个元素。
     切片返回的是和被切片对象相同类型对象的副本。要创建切片，可以指定要使用的第一个元素和最后一个元素的索引。下面举例说明索引和切片的区别。
@@ -59,6 +71,12 @@ print(list_[0:6:2])
 print(list_[::-1])
 ```
 
+    a
+    6
+    [1, 'green', 'c']
+    ['hello', [4, 5, 6], 'c', 'a', 'green', 3, 1]
+
+
 #### 1.4 更新列表元素 
 一般创建的列表都是动态的，可以随着程序的运行更新列表，更新列表元素包括修改、添加和删除元素。
 
@@ -72,6 +90,10 @@ print(color)
 color[2] = 'purple'
 print(color)
 ```
+
+    ['blue', 'dark', 'green', 'orange', 'pink', 'yellow', 'red']
+    ['blue', 'dark', 'purple', 'orange', 'pink', 'yellow', 'red']
+
 
 ##### 1.4.2 在列表中添加元素
 在列表中添加元素主要有两种情况：
@@ -94,6 +116,11 @@ for i in range(10):
     num.append(i)
 print(num)
 ```
+
+    ['blue', 'dark', 'green', 'orange', 'pink']
+    ['blue', 'dark', 'green', 'orange', 'pink', 'red']
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
 
 
 ```python
@@ -448,9 +475,59 @@ for col in color[:]:    # 复制列表
     orange
 
 
-#### 2.7 不可变得列表--元组
-列表是可以修改的，但是有时候需要创建一系列不可修改的元素，元组就可以满足这种需求。不可变的列表被称为元组，使用圆括号来表示。定义元组后，可以像访问列表
-一样访问元组的元素。
+#### 2.7 列表推导式
+    new_list = [x for x in iterable]
+    注意：
+    1、iterable表示可迭代的对象，包括字符串（str）、列表（list）、元组（tuple）、字典（dict）、集合（set）、生成器（generator）等；
+    2、列表推导式中可以同时包含多个for循环；
+    3、列表推导式中可以引入if条件语句；
+
+
+```python
+str_list = [x.lower() for x in "Apple"]   # 字符串
+print(str_list)
+
+list_list = [x**2 for x in range(5)]   # 列表
+print(list_list)
+
+tuple_list = [x+3 for x in (1,2,3)]   # 元组
+print(tuple_list)
+```
+
+    ['a', 'p', 'p', 'l', 'e']
+    [0, 1, 4, 9, 16]
+    [4, 5, 6]
+
+
+
+```python
+# 同时包含两个for循环
+[x*2+y for x in range(5) for y in range(3,6)]
+```
+
+
+
+
+    [3, 4, 5, 5, 6, 7, 7, 8, 9, 9, 10, 11, 11, 12, 13]
+
+
+
+
+```python
+# 引入if条件语句
+if_list = [x*2 for x in range(10) if x % 2 == 0]
+if_list
+```
+
+
+
+
+    [0, 4, 8, 12, 16]
+
+
+
+#### 2.8 不可变的列表--元组
+列表是可以修改的，但是有时候需要创建一系列不可修改的元素，元组就可以满足这种需求。不可变的列表被称为元组，使用圆括号来表示。定义元组后，可以像访问列表一样访问元组的元素。
 
 
 ```python
@@ -673,7 +750,7 @@ print(mean_arr)
     5.0
 
 
-    （8）Numpy中连接数组的方式与列表list不同，列表可以直接通过加号（+）连接数组，但是Numpy可以通过concatenate、stack、hstack、vstack连接数组。
+    （10）Numpy中连接数组的方式与列表list不同，列表可以直接通过加号（+）连接数组，但是Numpy可以通过concatenate、stack、hstack、vstack连接数组。
     * numpy.concatenate 函数用于沿指定轴连接相同形状的两个或多个数组，格式如下：numpy.concatenate((a1, a2, ...), axis)
     * numpy.stack 函数用于沿新轴连接数组序列，格式如下：numpy.stack(arrays, axis)
     * numpy.hstack是numpy.stack函数的变体，它通过水平堆叠来生成数组。
@@ -745,7 +822,7 @@ print(np.vstack((a,b)))    # 通过垂直堆叠生成数组
      [7 8]]
 
 
-    （8）数组可以修改形状，返回指定大小的新数组，而列表不可以。numpy.resize()函数返回指定大小的新数组。   
+    （11）数组可以修改形状，返回指定大小的新数组，而列表不可以。numpy.resize()函数返回指定大小的新数组。   
 
 
 ```python
