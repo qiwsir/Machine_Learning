@@ -13,7 +13,7 @@ class fib_iterator():
         self.n = n      # 定义斐波那契数列第n项（即共生成F0--Fn项数列）
         self.f0 = 0     # 定义斐波那契数列第0项（第一个数字）
         self.f1 = 1     # 定义斐波那契数列第1项（第二个数字）
-        self.index = 0  # 记录生成数字的下标
+        self.index = 0  # 记录生成数字的下标   ## 可以精简掉这个
 
     def __iter__(self):    # 定义迭代器对象
         return self
